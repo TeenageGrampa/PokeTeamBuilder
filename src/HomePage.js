@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PokeCard from './PokeCard'
+import { Link } from 'react-router-dom'
+
 
 
 class HomePage extends Component {
@@ -9,7 +11,7 @@ class HomePage extends Component {
     }
 
     async componentDidMount(){
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon')
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=150')
         const json = await response.json()
         console.log(json)
         this.setState({
@@ -21,8 +23,7 @@ class HomePage extends Component {
         return (
         <div className="container" >
             <h1>Welcome</h1>
-            <h2>All Pokemon</h2>
-            {PokemonCards}
+            <Link to="/NewTeam">Create Team</Link>
         </div>
         );
     }
