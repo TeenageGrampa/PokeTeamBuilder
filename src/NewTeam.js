@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PokeCard from './PokeCard'
+import { connect } from 'react-redux'
 
 
-class HomePage extends Component {
+class NewTeam extends Component {
 
     state={
         AllPokemon: []
@@ -68,6 +69,12 @@ class HomePage extends Component {
                 <ul>
                 {this.getabilitys()}
                 </ul>
+                <button onClick={() => this.props.AddSlot1(this.state.currentPokemon)}>Add to Team slot 1</button>
+                <button onClick={() => this.props.AddSlot2(this.state.currentPokemon)}>Add to Team slot 2</button>
+                <button onClick={() => this.props.AddSlot3(this.state.currentPokemon)}>Add to Team slot 3</button>
+                <button onClick={() => this.props.AddSlot4(this.state.currentPokemon)}>Add to Team slot 4</button>
+                <button onClick={() => this.props.AddSlot5(this.state.currentPokemon)}>Add to Team slot 5</button>
+                <button onClick={() => this.props.AddSlot6(this.state.currentPokemon)}>Add to Team slot 6</button>
             </div>
             : null}
         </div>
@@ -75,4 +82,36 @@ class HomePage extends Component {
     }
 }
 
-export default HomePage;
+const mapStateToProps = (store) => {
+    return {
+      currentTeam: store.currentTeam
+    }
+}
+  
+const mapDispatchToProps = (dispatch) => {
+    return {
+      LogIn: (loggedInUser) => {
+        dispatch({ type: 'LOGIN_CURRENT_USER', user: loggedInUser })
+      },
+      AddSlot1: (pokemon) => {
+          dispatch({ type: 'Add_to_team_slot_1', slot1: pokemon})
+      },
+     AddSlot2: (pokemon) => {
+        dispatch({ type: 'Add_to_team_slot_2', slot2: pokemon})
+      },
+     AddSlot3: (pokemon) => {
+        dispatch({ type: 'Add_to_team_slot_3', slot3: pokemon})
+      },
+      AddSlot4: (pokemon) => {
+        dispatch({ type: 'Add_to_team_slot_4', slot4: pokemon})
+      },
+      AddSlot5: (pokemon) => {
+        dispatch({ type: 'Add_to_team_slot_5', slot5: pokemon})
+      },
+     AddSlot6: (pokemon) => {
+        dispatch({ type: 'Add_to_team_slot_6', slot6: pokemon})
+      }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewTeam);
