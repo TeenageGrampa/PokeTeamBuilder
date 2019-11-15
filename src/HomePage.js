@@ -8,7 +8,8 @@ import { connect } from 'react-redux'
 class HomePage extends Component {
 
     state={
-        AllPokemon: []
+        AllPokemon: [],
+        teamTypes: []
     }
 
     async componentDidMount(){
@@ -38,7 +39,6 @@ class HomePage extends Component {
     handleMoveSelect1_2 = async (e) =>{
         const moveRes = await fetch(`${e.target.value}`)
         const movejson = await moveRes.json()
-        console.log(movejson)
         this.props.AddSlot1Move2(movejson)
     }
     handleMoveSelect1_3 = async (e) =>{
@@ -152,11 +152,78 @@ class HomePage extends Component {
         this.props.AddSlot6Move4(movejson)
     }
 
+    handleAnalyze =() => {
+        const slot1types = this.props.slot1.types.map(type => type.type.name)
+        const slot2types = this.props.slot2.types.map(type => type.type.name)
+        const slot3types = this.props.slot3.types.map(type => type.type.name)
+        const slot4types = this.props.slot4.types.map(type => type.type.name)
+        const slot5types = this.props.slot5.types.map(type => type.type.name)
+        const slot6types = this.props.slot6.types.map(type => type.type.name)
+        const typeArr = slot1types.concat(slot2types, slot3types, slot4types, slot5types, slot6types)
+        const uniqtypes = Array.from(new Set(typeArr))
+        const slot1type1 = this.props.slot1move1.type.name
+        const slot1type2 = this.props.slot1move2.type.name
+        const slot1type3 = this.props.slot1move3.type.name
+        const slot1type4 = this.props.slot1move4.type.name
+        const slot2type1 = this.props.slot2move1.type.name
+        const slot2type3 = this.props.slot2move3.type.name
+        const slot2type4 = this.props.slot2move4.type.name
+        const slot2type2 = this.props.slot2move2.type.name
+        const slot3type1 = this.props.slot3move1.type.name
+        const slot3type2 = this.props.slot3move2.type.name
+        const slot3type3 = this.props.slot3move3.type.name
+        const slot3type4 = this.props.slot3move4.type.name
+        const slot4type1 = this.props.slot4move1.type.name
+        const slot4type2 = this.props.slot4move2.type.name
+        const slot4type3 = this.props.slot4move3.type.name
+        const slot4type4 = this.props.slot4move4.type.name
+        const slot5type1 = this.props.slot5move1.type.name
+        const slot5type2 = this.props.slot5move2.type.name
+        const slot5type3 = this.props.slot5move3.type.name
+        const slot5type4 = this.props.slot5move4.type.name
+        const slot6type1 = this.props.slot6move1.type.name
+        const slot6type2 = this.props.slot6move2.type.name
+        const slot6type3 = this.props.slot6move3.type.name
+        const slot6type4 = this.props.slot6move4.type.name
+        const moveArr = [slot1type1, slot1type2, slot1type3, slot1type4, slot2type1, slot2type2, slot2type3, slot2type4, slot3type1, slot3type2, slot3type3, slot3type4, slot4type1, slot4type2, slot4type3, slot4type4, slot5type1, slot5type2, slot5type3, slot5type4, slot6type1, slot6type2, slot6type3, slot6type4,]
+        const uniqmovArr = Array.from(new Set(moveArr))
+        this.setState({
+            teamTypes: uniqtypes, 
+            moveTypes: uniqmovArr
+        })
+    }
+    displayTeamTypes = () => {
+        const typedis = this.state.teamTypes.map(type => <li>{type}</li>)
+        return typedis
+    }
+    displayMoveTypes = () => {
+        const typedis = this.state.moveTypes.map(type => <li>{type}</li>)
+        return typedis
+    }
+
     render () {
+        console.log(this.state)
         console.log(this.props)
         return (
         <div className="container" >
             <h1>Welcome</h1>
+            {this.props.slot1 && this.props.slot2 && this.props.slot3 && this.props.slot4 && this.props.slot5 && this.props.slot6 ?
+            <button onClick={this.handleAnalyze}>Analyze Team</button>
+            :null}
+            {this.state.teamTypes.length > 0 ? 
+            <div classname="columns box">
+                <div classname="column is-4">
+                <p>Your Team has the current types:</p>
+                <ul>{this.displayTeamTypes()}</ul>
+                </div>
+                <div classname="column is-4">
+                <p>You currently have atacks of these types:</p>
+                <ul>
+                {this.displayMoveTypes()}
+                </ul>
+                </div>
+            </div>
+            : null}
             <h1>Current Team:</h1>
             { this.props.slot1 ? 
             <div className="box columns">
@@ -182,18 +249,22 @@ class HomePage extends Component {
                 <div className="column is-4">
                     <h1>Moves:</h1>
                     <p>Move 1: {this.props.slot1move1 ? this.props.slot1move1.name : null}</p>
+                    <p>Type: {this.props.slot1move1 ? this.props.slot1move1.type.name : null}</p>
                     <select onChange={this.handleMoveSelect1_1}>
                     {this.getMoves(this.props.slot1)}
                     </select>
                     <p>Move 2: {this.props.slot1move2 ? this.props.slot1move2.name : null}</p>
+                    <p>Type: {this.props.slot1move2 ? this.props.slot1move2.type.name : null}</p>
                     <select onChange={this.handleMoveSelect1_2}>
                     {this.getMoves(this.props.slot1)}
                     </select>
                     <p>Move 3: {this.props.slot1move3 ? this.props.slot1move3.name : null}</p>
+                    <p>Type: {this.props.slot1move3 ? this.props.slot1move3.type.name : null}</p>
                     <select onChange={this.handleMoveSelect1_3}>
                     {this.getMoves(this.props.slot1)}
                     </select>
                     <p>Move 4: {this.props.slot1move4 ? this.props.slot1move4.name : null}</p>
+                    <p>Type: {this.props.slot1move4 ? this.props.slot1move4.type.name : null}</p>
                     <select onChange={this.handleMoveSelect1_4}>
                     {this.getMoves(this.props.slot1)}
                     </select>
@@ -225,18 +296,22 @@ class HomePage extends Component {
                 <div className="column is-4">
                     <h1>Moves:</h1>
                     <p>Move 1: {this.props.slot2move1 ? this.props.slot2move1.name : null}</p>
+                    <p>Type: {this.props.slot2move1 ? this.props.slot2move1.type.name : null}</p>
                     <select onChange={this.handleMoveSelect2_1}>
                     {this.getMoves(this.props.slot2)}
                     </select>
                     <p>Move 2: {this.props.slot2move2 ? this.props.slot2move2.name : null}</p>
+                    <p>Type: {this.props.slot2move2 ? this.props.slot2move2.type.name : null}</p>
                     <select onChange={this.handleMoveSelect2_2}>
                     {this.getMoves(this.props.slot2)}
                     </select>
                     <p>Move 3: {this.props.slot2move3 ? this.props.slot2move3.name : null}</p>
+                    <p>Type: {this.props.slot2move3 ? this.props.slot2move3.type.name : null}</p>
                     <select onChange={this.handleMoveSelect2_3}>
                     {this.getMoves(this.props.slot2)}
                     </select>
                     <p>Move 4: {this.props.slot2move4 ? this.props.slot2move4.name : null}</p>
+                    <p>Type: {this.props.slot2move4 ? this.props.slot2move4.type.name : null}</p>
                     <select onChange={this.handleMoveSelect2_4}>
                     {this.getMoves(this.props.slot2)}
                     </select>
@@ -268,18 +343,22 @@ class HomePage extends Component {
                 <div className="column is-4">
                     <h1>Moves:</h1>
                     <p>Move 1: {this.props.slot3move1 ? this.props.slot3move1.name : null}</p>
+                    <p>Type: {this.props.slot3move1 ? this.props.slot3move1.type.name : null}</p>
                     <select onChange={this.handleMoveSelect3_1}>
                     {this.getMoves(this.props.slot3)}
                     </select>
                     <p>Move 2: {this.props.slot3move2 ? this.props.slot3move2.name : null}</p>
+                    <p>Type: {this.props.slot3move2 ? this.props.slot3move2.type.name : null}</p>
                     <select onChange={this.handleMoveSelect3_2}>
                     {this.getMoves(this.props.slot3)}
                     </select>
                     <p>Move 3: {this.props.slot3move3 ? this.props.slot3move3.name : null}</p>
+                    <p>Type: {this.props.slot3move3 ? this.props.slot3move3.type.name : null}</p>
                     <select onChange={this.handleMoveSelect3_3}>
                     {this.getMoves(this.props.slot3)}
                     </select>
                     <p>Move 4: {this.props.slot3move4 ? this.props.slot3move4.name : null}</p>
+                    <p>Type: {this.props.slot3move4 ? this.props.slot3move4.type.name : null}</p>
                     <select onChange={this.handleMoveSelect3_4}>
                     {this.getMoves(this.props.slot3)}
                     </select>
@@ -311,18 +390,22 @@ class HomePage extends Component {
                 <div className="column is-4">
                     <h1>Moves:</h1>
                     <p>Move 1: {this.props.slot4move1 ? this.props.slot4move1.name : null}</p>
+                    <p>Type: {this.props.slot4move1 ? this.props.slot4move1.type.name : null}</p>
                     <select onChange={this.handleMoveSelect4_1}>
                     {this.getMoves(this.props.slot4)}
                     </select>
                     <p>Move 2: {this.props.slot4move2 ? this.props.slot4move2.name : null}</p>
+                    <p>Type: {this.props.slot4move2 ? this.props.slot4move2.type.name : null}</p>
                     <select onChange={this.handleMoveSelect4_2}>
                     {this.getMoves(this.props.slot4)}
                     </select>
                     <p>Move 3: {this.props.slot4move3 ? this.props.slot4move3.name : null}</p>
+                    <p>Type: {this.props.slot4move3 ? this.props.slot4move3.type.name : null}</p>
                     <select onChange={this.handleMoveSelect4_3}>
                     {this.getMoves(this.props.slot4)}
                     </select>
                     <p>Move 4: {this.props.slot4move4 ? this.props.slot4move4.name : null}</p>
+                    <p>Type: {this.props.slot4move4 ? this.props.slot4move4.type.name : null}</p>
                     <select onChange={this.handleMoveSelect4_4}>
                     {this.getMoves(this.props.slot4)}
                     </select>
@@ -354,18 +437,22 @@ class HomePage extends Component {
                 <div className="column is-4">
                     <h1>Moves:</h1>
                     <p>Move 1: {this.props.slot5move1 ? this.props.slot5move1.name : null}</p>
+                    <p>Type: {this.props.slot5move1 ? this.props.slot5move1.type.name : null}</p>
                     <select onChange={this.handleMoveSelect5_1}>
                     {this.getMoves(this.props.slot5)}
                     </select>
                     <p>Move 2: {this.props.slot5move2 ? this.props.slot5move2.name : null}</p>
+                    <p>Type: {this.props.slot5move2 ? this.props.slot5move2.type.name : null}</p>
                     <select onChange={this.handleMoveSelect5_2}>
                     {this.getMoves(this.props.slot5)}
                     </select>
                     <p>Move 3: {this.props.slot5move3 ? this.props.slot5move3.name : null}</p>
+                    <p>Type: {this.props.slot5move3 ? this.props.slot5move3.type.name : null}</p>
                     <select onChange={this.handleMoveSelect5_3}>
                     {this.getMoves(this.props.slot5)}
                     </select>
                     <p>Move 4: {this.props.slot5move4 ? this.props.slot5move4.name : null}</p>
+                    <p>Type: {this.props.slot5move4 ? this.props.slot5move4.type.name : null}</p>
                     <select onChange={this.handleMoveSelect5_4}>
                     {this.getMoves(this.props.slot5)}
                     </select>
@@ -397,18 +484,22 @@ class HomePage extends Component {
                 <div className="column is-4">
                     <h1>Moves:</h1>
                     <p>Move 1: {this.props.slot6move1 ? this.props.slot6move1.name : null}</p>
+                    <p>Type: {this.props.slot6move1 ? this.props.slot6move1.type.name : null}</p>
                     <select onChange={this.handleMoveSelect6_1}>
                     {this.getMoves(this.props.slot6)}
                     </select>
                     <p>Move 2: {this.props.slot6move2 ? this.props.slot6move2.name : null}</p>
+                    <p>Type: {this.props.slot6move2 ? this.props.slot6move2.type.name : null}</p>
                     <select onChange={this.handleMoveSelect6_2}>
                     {this.getMoves(this.props.slot6)}
                     </select>
                     <p>Move 3: {this.props.slot6move3 ? this.props.slot6move3.name : null}</p>
+                    <p>Type: {this.props.slot6move3 ? this.props.slot6move3.type.name : null}</p>
                     <select onChange={this.handleMoveSelect6_3}>
                     {this.getMoves(this.props.slot6)}
                     </select>
                     <p>Move 4: {this.props.slot6move4 ? this.props.slot6move4.name : null}</p>
+                    <p>Type: {this.props.slot6move4 ? this.props.slot6move4.type.name : null}</p>
                     <select onChange={this.handleMoveSelect6_4}>
                     {this.getMoves(this.props.slot6)}
                     </select>
