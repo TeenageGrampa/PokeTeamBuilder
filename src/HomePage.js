@@ -9,7 +9,8 @@ class HomePage extends Component {
 
     state={
         AllPokemon: [],
-        teamTypes: []
+        teamTypes: [],
+
     }
 
     async componentDidMount(){
@@ -200,6 +201,100 @@ class HomePage extends Component {
         const typedis = this.state.moveTypes.map(type => <li>{type}</li>)
         return typedis
     }
+    displayWeakness = () => {
+        let weakArray = []
+        if (this.state.teamTypes.includes('normal')){
+            weakArray.push('fighting')
+        }
+        if (this.state.teamTypes.includes('fightng')){
+            weakArray.push('flying')
+            weakArray.push('psychic')
+            weakArray.push('fairy')
+        }
+        if (this.state.teamTypes.includes('flying')){
+            weakArray.push('rock')
+            weakArray.push('ice')
+            weakArray.push('electric')
+        }
+        if (this.state.teamTypes.includes('poison')){
+            weakArray.push('fighting')
+            weakArray.push('steel')
+            weakArray.push('water')
+            weakArray.push('grass')
+        }
+        if (this.state.teamTypes.includes('ground')){
+            weakArray.push('water')
+            weakArray.push('grass')
+            weakArray.push('ice')
+        }
+        if (this.state.teamTypes.includes('rock')){
+            weakArray.push('fighting')
+            weakArray.push('steel')
+            weakArray.push('water')
+            weakArray.push('grass')
+        }
+        if (this.state.teamTypes.includes('bug')){
+            weakArray.push('flying')
+            weakArray.push('rock')
+            weakArray.push('fire')
+        }
+        if (this.state.teamTypes.includes('ghost')){
+            weakArray.push('ghost')
+            weakArray.push('dark')
+        }
+        if (this.state.teamTypes.includes('steel')){
+            weakArray.push('fighting')
+            weakArray.push('ground')
+            weakArray.push('fire')
+        }
+        if (this.state.teamTypes.includes('fire')){
+            weakArray.push('ground')
+            weakArray.push('rock')
+            weakArray.push('water')
+        }
+        if (this.state.teamTypes.includes('water')){
+            weakArray.push('electric')
+            weakArray.push('grass')
+        }
+        if (this.state.teamTypes.includes('grass')){
+            weakArray.push('ice')
+            weakArray.push('fire')
+            weakArray.push('bug')
+            weakArray.push('poison')
+            weakArray.push('flying')
+        }
+        if (this.state.teamTypes.includes('electric')){
+            weakArray.push('ground')
+        }
+        if (this.state.teamTypes.includes('psychic')){
+            weakArray.push('dark')
+            weakArray.push('ghost')
+            weakArray.push('bug')
+        }
+        if (this.state.teamTypes.includes('ice')){
+            weakArray.push('fighting')
+            weakArray.push('steel')
+            weakArray.push('rock')
+            weakArray.push('fire')
+        }
+        if (this.state.teamTypes.includes('dragon')){
+            weakArray.push('fairy')
+            weakArray.push('ice')
+            weakArray.push('dragon')
+        }
+        if (this.state.teamTypes.includes('dark')){
+            weakArray.push('fighting')
+            weakArray.push('bug')
+            weakArray.push('fairy')
+        }
+        if (this.state.teamTypes.includes('fairy')){
+            weakArray.push('poison')
+            weakArray.push('steel')
+        }
+        const uniqWeakArr = Array.from(new Set(weakArray))
+        const weakdis = uniqWeakArr.map(type => <li>{type}</li>)
+        return weakdis
+    }
 
     render () {
         console.log(this.state)
@@ -221,6 +316,12 @@ class HomePage extends Component {
                 <ul>
                 {this.displayMoveTypes()}
                 </ul>
+                </div>
+                <div className="column is-4">
+                    <p>Your weaknesses are:</p>
+                    <ul>
+                        {this.displayWeakness()}
+                    </ul>
                 </div>
             </div>
             : null}
