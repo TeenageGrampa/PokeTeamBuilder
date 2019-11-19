@@ -47,14 +47,13 @@ class NewTeam extends Component {
                 {pokeoptions}
             </select>
             {this.state.currentPokemon ? 
-            <div className="box">
+            <div className="box" style={{borderStyle: 'ridge', boxShadow: '10px 10px 18px -5px rgba(0,0,0,0.75)'}}>
                 <h1>Name: {this.state.currentPokemon.name}</h1>
                 <p>id: {this.state.currentPokemon.id}</p>
                 <p>type:</p>
                 <ul>
                     {this.getTypes()}
                 </ul>
-                <p>base experience: {this.state.currentPokemon.base_experience}</p>
                 <img src={this.state.currentPokemon.sprites.front_default} />
                 <p>stats:</p>
                 <ul>
@@ -65,6 +64,7 @@ class NewTeam extends Component {
                     <li>{this.state.currentPokemon.stats[4].stat.name} - {this.state.currentPokemon.stats[4].base_stat}</li>
                     <li>{this.state.currentPokemon.stats[5].stat.name} - {this.state.currentPokemon.stats[5].base_stat}</li>
                 </ul>
+                <p>base experience: {this.state.currentPokemon.base_experience}</p>
                 <p>abillities</p>
                 <ul>
                 {this.getabilitys()}

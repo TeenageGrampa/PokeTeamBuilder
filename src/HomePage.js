@@ -302,13 +302,13 @@ class HomePage extends Component {
         console.log(this.state)
         console.log(this.props)
         return (
-        <div className="container" >
+        <div style={{backgroundImage: `url(https://ih1.redbubble.net/image.236310472.7095/flat,1000x1000,075,f.u2.jpg)`}}>
             <h1>Welcome</h1>
             {this.props.slot1 && this.props.slot2 && this.props.slot3 && this.props.slot4 && this.props.slot5 && this.props.slot6 ?
             <button onClick={this.handleAnalyze}>Analyze Team</button>
             :null}
             {this.state.teamTypes.length > 0 ? 
-            <div className="columns box">
+            <div className="columns box" style={{borderStyle: 'ridge', margin: 20, boxShadow: '10px 10px 18px -5px rgba(0,0,0,0.75)'}}>
                 <div className="column is-4">
                 <p>Your Team has the current types:</p>
                 <ul>{this.displayTeamTypes()}</ul>
@@ -329,7 +329,7 @@ class HomePage extends Component {
             : null}
             <h1>Current Team:</h1>
             { this.props.slot1 ? 
-            <div className="box columns">
+            <div className="box columns" style={{borderStyle: 'ridge', margin: 20, boxShadow: '10px 10px 18px -5px rgba(0,0,0,0.75)'}}>
                 <div className="column is-4">
                     <h1>Name: {this.props.slot1.name}</h1>
                     <p>type:</p>
@@ -376,7 +376,7 @@ class HomePage extends Component {
             : null
             }
             { this.props.slot2 ? 
-            <div className="box columns">
+            <div className="box columns" style={{borderStyle: 'ridge', margin: 20, boxShadow: '10px 10px 18px -5px rgba(0,0,0,0.75)'}}>
                 <div className="column is-4">
                 <h1>Name: {this.props.slot2.name}</h1>
                 <p>type:</p>
@@ -423,7 +423,7 @@ class HomePage extends Component {
             : null
             }
             { this.props.slot3 ? 
-            <div className="box columns">
+            <div className="box columns" style={{borderStyle: 'ridge', margin: 20, boxShadow: '10px 10px 18px -5px rgba(0,0,0,0.75)'}}>
                 <div className="column is-4">
                 <h1>Name: {this.props.slot3.name}</h1>
                 <p>type:</p>
@@ -470,7 +470,7 @@ class HomePage extends Component {
             : null
             }
             { this.props.slot4 ? 
-            <div className="box columns">
+            <div className="box columns" style={{borderStyle: 'ridge', margin: 20, boxShadow: '10px 10px 18px -5px rgba(0,0,0,0.75)'}}>
                 <div className="column is-4">
                 <h1>Name: {this.props.slot4.name}</h1>
                 <p>type:</p>
@@ -517,7 +517,7 @@ class HomePage extends Component {
             : null
             }
             { this.props.slot5 ? 
-            <div className="box columns">
+            <div className="box columns" style={{borderStyle: 'ridge', margin: 20, boxShadow: '10px 10px 18px -5px rgba(0,0,0,0.75)'}}>
                 <div className="column is-4">
                 <h1>Name: {this.props.slot5.name}</h1>
                 <p>type:</p>
@@ -564,7 +564,7 @@ class HomePage extends Component {
             : null
             }
             { this.props.slot6 ? 
-            <div className="box columns">
+            <div className="box columns" style={{borderStyle: 'ridge', margin: 20, boxShadow: '10px 10px 18px -5px rgba(0,0,0,0.75)'}}>
                 <div className="column is-4">
                 <h1>Name: {this.props.slot6.name}</h1>
                 <p>type:</p>
