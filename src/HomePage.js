@@ -292,7 +292,9 @@ class HomePage extends Component {
             weakArray.push('steel')
         }
         const uniqWeakArr = Array.from(new Set(weakArray))
-        const weakdis = uniqWeakArr.map(type => <li>{type}</li>)
+        const filteredWeak = uniqWeakArr.filter((ele) => !this.state.moveTypes.includes(ele))
+        // console.log(filteredWeak)
+        const weakdis = filteredWeak.map(type => <li>{type}</li>)
         return weakdis
     }
 
@@ -306,12 +308,12 @@ class HomePage extends Component {
             <button onClick={this.handleAnalyze}>Analyze Team</button>
             :null}
             {this.state.teamTypes.length > 0 ? 
-            <div classname="columns box">
-                <div classname="column is-4">
+            <div className="columns box">
+                <div className="column is-4">
                 <p>Your Team has the current types:</p>
                 <ul>{this.displayTeamTypes()}</ul>
                 </div>
-                <div classname="column is-4">
+                <div className="column is-4">
                 <p>You currently have atacks of these types:</p>
                 <ul>
                 {this.displayMoveTypes()}
