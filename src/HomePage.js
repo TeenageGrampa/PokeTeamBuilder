@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PokeCard from './PokeCard'
+import Modal from './Modal'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
@@ -10,7 +11,30 @@ class HomePage extends Component {
     state={
         AllPokemon: [],
         teamTypes: [],
-
+        modal1_1: false,
+        modal1_2: false,
+        modal1_3: false,
+        modal1_4: false,
+        modal2_1: false,
+        modal2_2: false,
+        modal2_3: false,
+        modal2_4: false,
+        modal3_1: false,
+        modal3_2: false,
+        modal3_3: false,
+        modal3_4: false,
+        modal4_1: false,
+        modal4_2: false,
+        modal4_3: false,
+        modal4_4: false,
+        modal5_1: false,
+        modal5_2: false,
+        modal5_3: false,
+        modal5_4: false,
+        modal6_1: false,
+        modal6_2: false,
+        modal6_3: false,
+        modal6_4: false,
     }
 
     async componentDidMount(){
@@ -298,6 +322,12 @@ class HomePage extends Component {
         return weakdis
     }
 
+    handleModal = (move) => {
+        this.setState({
+            [move]: !this.state[move]
+        })
+    }
+
     render () {
         console.log(this.state)
         console.log(this.props)
@@ -351,23 +381,31 @@ class HomePage extends Component {
                 </div>
                 <div className="column is-4">
                     <h1>Moves:</h1>
-                    <p>Move 1: {this.props.slot1move1 ? this.props.slot1move1.name : null}</p>
-                    <p>Type: {this.props.slot1move1 ? this.props.slot1move1.type.name : null}</p>
+                    <p>Move 1: </p>{this.props.slot1move1 ? <div><p>{this.props.slot1move1.name}</p><button onClick={() => this.handleModal('modal1_1')}>show more</button></div> : null}
+                    {this.state.modal1_1 === true ? 
+                    <Modal move={this.props.slot1move1} hideModal={this.handleModal} number='modal1_1'/>
+                  : null}
                     <select onChange={this.handleMoveSelect1_1}>
                     {this.getMoves(this.props.slot1)}
                     </select>
-                    <p>Move 2: {this.props.slot1move2 ? this.props.slot1move2.name : null}</p>
-                    <p>Type: {this.props.slot1move2 ? this.props.slot1move2.type.name : null}</p>
+                    <p>Move 2: </p>{this.props.slot1move2 ? <div><p>{this.props.slot1move2.name}</p><button onClick={() => this.handleModal('modal1_2')}>show more</button></div> : null}
+                    {this.state.modal1_2 === true ? 
+                    <Modal move={this.props.slot1move2} hideModal={this.handleModal} number='modal1_2'/>
+                  : null}
                     <select onChange={this.handleMoveSelect1_2}>
                     {this.getMoves(this.props.slot1)}
                     </select>
-                    <p>Move 3: {this.props.slot1move3 ? this.props.slot1move3.name : null}</p>
-                    <p>Type: {this.props.slot1move3 ? this.props.slot1move3.type.name : null}</p>
+                    <p>Move 3: </p>{this.props.slot1move3 ? <div><p>{this.props.slot1move3.name}</p><button onClick={() => this.handleModal('modal1_3')}>show more</button></div> : null}
+                    {this.state.modal1_3 === true ? 
+                    <Modal move={this.props.slot1move3} hideModal={this.handleModal} number='modal1_3'/>
+                  : null}
                     <select onChange={this.handleMoveSelect1_3}>
                     {this.getMoves(this.props.slot1)}
                     </select>
-                    <p>Move 4: {this.props.slot1move4 ? this.props.slot1move4.name : null}</p>
-                    <p>Type: {this.props.slot1move4 ? this.props.slot1move4.type.name : null}</p>
+                    <p>Move 4: </p>{this.props.slot1move4 ? <div><p>{this.props.slot1move4.name}</p><button onClick={() => this.handleModal('modal1_4')}>show more</button></div> : null}
+                    {this.state.modal1_4 === true ? 
+                    <Modal move={this.props.slot1move4} hideModal={this.handleModal} number='modal1_4'/>
+                  : null}
                     <select onChange={this.handleMoveSelect1_4}>
                     {this.getMoves(this.props.slot1)}
                     </select>
@@ -398,23 +436,31 @@ class HomePage extends Component {
                 </div>
                 <div className="column is-4">
                     <h1>Moves:</h1>
-                    <p>Move 1: {this.props.slot2move1 ? this.props.slot2move1.name : null}</p>
-                    <p>Type: {this.props.slot2move1 ? this.props.slot2move1.type.name : null}</p>
+                    <p>Move 1: </p>{this.props.slot2move1 ? <div><p>{this.props.slot2move1.name}</p><button onClick={() => this.handleModal('modal2_1')}>show more</button></div> : null}
+                    {this.state.modal2_1 === true ? 
+                    <Modal move={this.props.slot2move1} hideModal={this.handleModal} number='modal2_1'/>
+                  : null}
                     <select onChange={this.handleMoveSelect2_1}>
                     {this.getMoves(this.props.slot2)}
                     </select>
-                    <p>Move 2: {this.props.slot2move2 ? this.props.slot2move2.name : null}</p>
-                    <p>Type: {this.props.slot2move2 ? this.props.slot2move2.type.name : null}</p>
+                    <p>Move 2: </p>{this.props.slot2move2 ? <div><p>{this.props.slot2move2.name}</p><button onClick={() => this.handleModal('modal2_2')}>show more</button></div> : null}
+                    {this.state.modal2_2 === true ? 
+                    <Modal move={this.props.slot2move2} hideModal={this.handleModal} number='modal2_2'/>
+                  : null}
                     <select onChange={this.handleMoveSelect2_2}>
                     {this.getMoves(this.props.slot2)}
                     </select>
-                    <p>Move 3: {this.props.slot2move3 ? this.props.slot2move3.name : null}</p>
-                    <p>Type: {this.props.slot2move3 ? this.props.slot2move3.type.name : null}</p>
+                    <p>Move 3: </p>{this.props.slot2move3 ? <div><p>{this.props.slot2move3.name}</p><button onClick={() => this.handleModal('modal2_3')}>show more</button></div> : null}
+                    {this.state.modal2_3 === true ? 
+                    <Modal move={this.props.slot2move3} hideModal={this.handleModal} number='modal2_3'/>
+                  : null}
                     <select onChange={this.handleMoveSelect2_3}>
                     {this.getMoves(this.props.slot2)}
                     </select>
-                    <p>Move 4: {this.props.slot2move4 ? this.props.slot2move4.name : null}</p>
-                    <p>Type: {this.props.slot2move4 ? this.props.slot2move4.type.name : null}</p>
+                    <p>Move 4: </p>{this.props.slot2move4 ? <div><p>{this.props.slot2move4.name}</p><button onClick={() => this.handleModal('modal2_4')}>show more</button></div> : null}
+                    {this.state.modal2_4 === true ? 
+                    <Modal move={this.props.slot2move4} hideModal={this.handleModal} number='modal2_4'/>
+                  : null}
                     <select onChange={this.handleMoveSelect2_4}>
                     {this.getMoves(this.props.slot2)}
                     </select>
@@ -445,23 +491,31 @@ class HomePage extends Component {
                 </div>
                 <div className="column is-4">
                     <h1>Moves:</h1>
-                    <p>Move 1: {this.props.slot3move1 ? this.props.slot3move1.name : null}</p>
-                    <p>Type: {this.props.slot3move1 ? this.props.slot3move1.type.name : null}</p>
+                    <p>Move 1: </p>{this.props.slot3move1 ? <div><p>{this.props.slot3move1.name}</p><button onClick={() => this.handleModal('modal3_1')}>show more</button></div> : null}
+                    {this.state.modal3_1 === true ? 
+                    <Modal move={this.props.slot3move1} hideModal={this.handleModal} number='modal3_1'/>
+                  : null}
                     <select onChange={this.handleMoveSelect3_1}>
                     {this.getMoves(this.props.slot3)}
                     </select>
-                    <p>Move 2: {this.props.slot3move2 ? this.props.slot3move2.name : null}</p>
-                    <p>Type: {this.props.slot3move2 ? this.props.slot3move2.type.name : null}</p>
+                    <p>Move 2: </p>{this.props.slot3move2 ? <div><p>{this.props.slot3move2.name}</p><button onClick={() => this.handleModal('modal3_2')}>show more</button></div> : null}
+                    {this.state.modal3_2 === true ? 
+                    <Modal move={this.props.slot3move2} hideModal={this.handleModal} number='modal3_2'/>
+                  : null}
                     <select onChange={this.handleMoveSelect3_2}>
                     {this.getMoves(this.props.slot3)}
                     </select>
-                    <p>Move 3: {this.props.slot3move3 ? this.props.slot3move3.name : null}</p>
-                    <p>Type: {this.props.slot3move3 ? this.props.slot3move3.type.name : null}</p>
+                    <p>Move 2: </p>{this.props.slot3move3 ? <div><p>{this.props.slot3move3.name}</p><button onClick={() => this.handleModal('modal3_3')}>show more</button></div> : null}
+                    {this.state.modal3_3 === true ? 
+                    <Modal move={this.props.slot3move3} hideModal={this.handleModal} number='modal3_3'/>
+                  : null}
                     <select onChange={this.handleMoveSelect3_3}>
                     {this.getMoves(this.props.slot3)}
                     </select>
-                    <p>Move 4: {this.props.slot3move4 ? this.props.slot3move4.name : null}</p>
-                    <p>Type: {this.props.slot3move4 ? this.props.slot3move4.type.name : null}</p>
+                    <p>Move 4: </p>{this.props.slot3move4 ? <div><p>{this.props.slot3move4.name}</p><button onClick={() => this.handleModal('modal3_4')}>show more</button></div> : null}
+                    {this.state.modal3_4 === true ? 
+                    <Modal move={this.props.slot3move4} hideModal={this.handleModal} number='modal3_4'/>
+                  : null}
                     <select onChange={this.handleMoveSelect3_4}>
                     {this.getMoves(this.props.slot3)}
                     </select>
@@ -492,23 +546,31 @@ class HomePage extends Component {
                 </div>
                 <div className="column is-4">
                     <h1>Moves:</h1>
-                    <p>Move 1: {this.props.slot4move1 ? this.props.slot4move1.name : null}</p>
-                    <p>Type: {this.props.slot4move1 ? this.props.slot4move1.type.name : null}</p>
+                    <p>Move 1: </p>{this.props.slot4move1 ? <div><p>{this.props.slot4move1.name}</p><button onClick={() => this.handleModal('modal4_1')}>show more</button></div> : null}
+                    {this.state.modal4_1 === true ? 
+                    <Modal move={this.props.slot4move1} hideModal={this.handleModal} number='modal4_1'/>
+                  : null}
                     <select onChange={this.handleMoveSelect4_1}>
                     {this.getMoves(this.props.slot4)}
                     </select>
-                    <p>Move 2: {this.props.slot4move2 ? this.props.slot4move2.name : null}</p>
-                    <p>Type: {this.props.slot4move2 ? this.props.slot4move2.type.name : null}</p>
+                    <p>Move 2: </p>{this.props.slot4move2 ? <div><p>{this.props.slot4move2.name}</p><button onClick={() => this.handleModal('modal4_2')}>show more</button></div> : null}
+                    {this.state.modal4_2 === true ? 
+                    <Modal move={this.props.slot4move2} hideModal={this.handleModal} number='modal4_2'/>
+                  : null}
                     <select onChange={this.handleMoveSelect4_2}>
                     {this.getMoves(this.props.slot4)}
                     </select>
-                    <p>Move 3: {this.props.slot4move3 ? this.props.slot4move3.name : null}</p>
-                    <p>Type: {this.props.slot4move3 ? this.props.slot4move3.type.name : null}</p>
+                    <p>Move 3: </p>{this.props.slot4move3 ? <div><p>{this.props.slot4move3.name}</p><button onClick={() => this.handleModal('modal4_3')}>show more</button></div> : null}
+                    {this.state.modal4_3 === true ? 
+                    <Modal move={this.props.slot4move3} hideModal={this.handleModal} number='modal4_3'/>
+                  : null}
                     <select onChange={this.handleMoveSelect4_3}>
                     {this.getMoves(this.props.slot4)}
                     </select>
-                    <p>Move 4: {this.props.slot4move4 ? this.props.slot4move4.name : null}</p>
-                    <p>Type: {this.props.slot4move4 ? this.props.slot4move4.type.name : null}</p>
+                    <p>Move 4: </p>{this.props.slot4move4 ? <div><p>{this.props.slot4move4.name}</p><button onClick={() => this.handleModal('modal4_4')}>show more</button></div> : null}
+                    {this.state.modal4_4 === true ? 
+                    <Modal move={this.props.slot4move4} hideModal={this.handleModal} number='modal4_4'/>
+                  : null}
                     <select onChange={this.handleMoveSelect4_4}>
                     {this.getMoves(this.props.slot4)}
                     </select>
@@ -539,23 +601,31 @@ class HomePage extends Component {
                 </div>
                 <div className="column is-4">
                     <h1>Moves:</h1>
-                    <p>Move 1: {this.props.slot5move1 ? this.props.slot5move1.name : null}</p>
-                    <p>Type: {this.props.slot5move1 ? this.props.slot5move1.type.name : null}</p>
+                    <p>Move 1: </p>{this.props.slot5move1 ? <div><p>{this.props.slot5move1.name}</p><button onClick={() => this.handleModal('modal5_1')}>show more</button></div> : null}
+                    {this.state.modal5_1 === true ? 
+                    <Modal move={this.props.slot5move1} hideModal={this.handleModal} number='modal5_1'/>
+                  : null}
                     <select onChange={this.handleMoveSelect5_1}>
                     {this.getMoves(this.props.slot5)}
                     </select>
-                    <p>Move 2: {this.props.slot5move2 ? this.props.slot5move2.name : null}</p>
-                    <p>Type: {this.props.slot5move2 ? this.props.slot5move2.type.name : null}</p>
+                    <p>Move 2: </p>{this.props.slot5move2 ? <div><p>{this.props.slot5move2.name}</p><button onClick={() => this.handleModal('modal5_2')}>show more</button></div> : null}
+                    {this.state.modal5_2 === true ? 
+                    <Modal move={this.props.slot5move2} hideModal={this.handleModal} number='modal5_2'/>
+                  : null}
                     <select onChange={this.handleMoveSelect5_2}>
                     {this.getMoves(this.props.slot5)}
                     </select>
-                    <p>Move 3: {this.props.slot5move3 ? this.props.slot5move3.name : null}</p>
-                    <p>Type: {this.props.slot5move3 ? this.props.slot5move3.type.name : null}</p>
+                    <p>Move 3: </p>{this.props.slot5move3 ? <div><p>{this.props.slot5move3.name}</p><button onClick={() => this.handleModal('modal5_3')}>show more</button></div> : null}
+                    {this.state.modal5_3 === true ? 
+                    <Modal move={this.props.slot5move3} hideModal={this.handleModal} number='modal5_3'/>
+                  : null}
                     <select onChange={this.handleMoveSelect5_3}>
                     {this.getMoves(this.props.slot5)}
                     </select>
-                    <p>Move 4: {this.props.slot5move4 ? this.props.slot5move4.name : null}</p>
-                    <p>Type: {this.props.slot5move4 ? this.props.slot5move4.type.name : null}</p>
+                    <p>Move 4: </p>{this.props.slot5move4 ? <div><p>{this.props.slot5move4.name}</p><button onClick={() => this.handleModal('modal5_4')}>show more</button></div> : null}
+                    {this.state.modal5_4 === true ? 
+                    <Modal move={this.props.slot5move4} hideModal={this.handleModal} number='modal5_4'/>
+                  : null}
                     <select onChange={this.handleMoveSelect5_4}>
                     {this.getMoves(this.props.slot5)}
                     </select>
@@ -586,23 +656,31 @@ class HomePage extends Component {
                 </div>
                 <div className="column is-4">
                     <h1>Moves:</h1>
-                    <p>Move 1: {this.props.slot6move1 ? this.props.slot6move1.name : null}</p>
-                    <p>Type: {this.props.slot6move1 ? this.props.slot6move1.type.name : null}</p>
+                    <p>Move 2: </p>{this.props.slot6move1 ? <div><p>{this.props.slot6move1.name}</p><button onClick={() => this.handleModal('modal6_1')}>show more</button></div> : null}
+                    {this.state.modal6_1 === true ? 
+                    <Modal move={this.props.slot6move1} hideModal={this.handleModal} number='modal6_1'/>
+                  : null}
                     <select onChange={this.handleMoveSelect6_1}>
                     {this.getMoves(this.props.slot6)}
                     </select>
-                    <p>Move 2: {this.props.slot6move2 ? this.props.slot6move2.name : null}</p>
-                    <p>Type: {this.props.slot6move2 ? this.props.slot6move2.type.name : null}</p>
+                    <p>Move 2: </p>{this.props.slot6move2 ? <div><p>{this.props.slot6move2.name}</p><button onClick={() => this.handleModal('modal6_2')}>show more</button></div> : null}
+                    {this.state.modal6_2 === true ? 
+                    <Modal move={this.props.slot6move2} hideModal={this.handleModal} number='modal6_2'/>
+                  : null}
                     <select onChange={this.handleMoveSelect6_2}>
                     {this.getMoves(this.props.slot6)}
                     </select>
-                    <p>Move 3: {this.props.slot6move3 ? this.props.slot6move3.name : null}</p>
-                    <p>Type: {this.props.slot6move3 ? this.props.slot6move3.type.name : null}</p>
+                    <p>Move 3: </p>{this.props.slot6move3 ? <div><p>{this.props.slot6move3.name}</p><button onClick={() => this.handleModal('modal6_3')}>show more</button></div> : null}
+                    {this.state.modal6_3 === true ? 
+                    <Modal move={this.props.slot6move3} hideModal={this.handleModal} number='modal6_3'/>
+                  : null}
                     <select onChange={this.handleMoveSelect6_3}>
                     {this.getMoves(this.props.slot6)}
                     </select>
-                    <p>Move 4: {this.props.slot6move4 ? this.props.slot6move4.name : null}</p>
-                    <p>Type: {this.props.slot6move4 ? this.props.slot6move4.type.name : null}</p>
+                    <p>Move 4: </p>{this.props.slot6move4 ? <div><p>{this.props.slot6move4.name}</p><button onClick={() => this.handleModal('modal6_4')}>show more</button></div> : null}
+                    {this.state.modal6_4 === true ? 
+                    <Modal move={this.props.slot6move4} hideModal={this.handleModal} number='modal6_4'/>
+                  : null}
                     <select onChange={this.handleMoveSelect6_4}>
                     {this.getMoves(this.props.slot6)}
                     </select>
