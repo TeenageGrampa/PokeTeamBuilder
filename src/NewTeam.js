@@ -41,7 +41,8 @@ class NewTeam extends Component {
         // const pokeability = this.state.currentPokemon.abilities.map(ability => <li>{ability.ability.name}</li>)
         const pokeoptions = this.state.AllPokemon.map(pokemon => <option value={pokemon.url} >{pokemon.name}</option>)
         return (
-        <div className="container" >
+        <div className="container">
+        <div style={{minHeight: '100%', paddingBottom: 2000, backgroundImage: `url(https://ih1.redbubble.net/image.236310472.7095/flat,1000x1000,075,f.u2.jpg)`}}>
             <h1>Choose your pokemon:</h1>
             <select className="select" onChange={this.handleChange}>
                 {pokeoptions}
@@ -77,6 +78,7 @@ class NewTeam extends Component {
                 <button onClick={() => this.props.AddSlot6(this.state.currentPokemon)}>Add to Team slot 6</button>
             </div>
             : null}
+            </div>
         </div>
         );
     }
