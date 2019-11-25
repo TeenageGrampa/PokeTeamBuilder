@@ -43,7 +43,7 @@ class NewTeam extends Component {
         return (
         <div className="container">
         <div style={{minHeight: '100%', paddingBottom: 2000, backgroundImage: `url(https://ih1.redbubble.net/image.236310472.7095/flat,1000x1000,075,f.u2.jpg)`}}>
-            <h1>Choose your pokemon:</h1>
+            <h1 className="title box" style={{borderStyle: 'ridge', boxShadow: '10px 10px 18px -5px rgba(0,0,0,0.75)'}}>Choose your pokemon:</h1>
             <select className="select" onChange={this.handleChange}>
                 {pokeoptions}
             </select>

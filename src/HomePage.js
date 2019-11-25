@@ -333,12 +333,13 @@ class HomePage extends Component {
         console.log(this.props)
         return (
         <div style={{backgroundImage: `url(https://ih1.redbubble.net/image.236310472.7095/flat,1000x1000,075,f.u2.jpg)`}}>
-            <h1>Welcome</h1>
+            <div className="box" style={{borderStyle: 'ridge', margin: 20, boxShadow: '10px 10px 18px -5px rgba(0,0,0,0.75)'}}>
+            <h1 className="title">Welcome</h1>
             {this.props.slot1 && this.props.slot2 && this.props.slot3 && this.props.slot4 && this.props.slot5 && this.props.slot6 ?
             <button onClick={this.handleAnalyze}>Analyze Team</button>
             :null}
             {this.state.teamTypes.length > 0 ? 
-            <div className="columns box" style={{borderStyle: 'ridge', margin: 20, boxShadow: '10px 10px 18px -5px rgba(0,0,0,0.75)'}}>
+            <div className="columns" >
                 <div className="column is-4">
                 <p>Your Team has the current types:</p>
                 <ul>{this.displayTeamTypes()}</ul>
@@ -358,6 +359,7 @@ class HomePage extends Component {
             </div>
             : null}
             <h1>Current Team:</h1>
+            </div>
             { this.props.slot1 ? 
             <div className="box columns" style={{borderStyle: 'ridge', margin: 20, boxShadow: '10px 10px 18px -5px rgba(0,0,0,0.75)'}}>
                 <div className="column is-4">
@@ -688,7 +690,7 @@ class HomePage extends Component {
             </div> 
             : null
             }
-            <Link to="/NewTeam">Create Team</Link>
+            <Link to="/NewTeam" className="btn">Create Team</Link>
         </div>
         );
     }
