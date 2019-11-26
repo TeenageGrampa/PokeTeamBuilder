@@ -12,7 +12,6 @@ class NewTeam extends Component {
     handleChange = async (e) =>{
         const pokeRes = await fetch(`${e.target.value}`)
         const pokejson = await pokeRes.json()
-        console.log(pokejson)
         this.setState({
             currentPokemon: pokejson
         })
@@ -21,7 +20,6 @@ class NewTeam extends Component {
     async componentDidMount(){
         const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=964')
         const json = await response.json()
-        console.log(json)
         this.setState({
             AllPokemon: json.results
         })
@@ -37,8 +35,6 @@ class NewTeam extends Component {
         return poketype
     }
     render () {
-        console.log(this.state)
-        // const pokeability = this.state.currentPokemon.abilities.map(ability => <li>{ability.ability.name}</li>)
         const pokeoptions = this.state.AllPokemon.map(pokemon => <option value={pokemon.url} >{pokemon.name}</option>)
         return (
         <div className="container">

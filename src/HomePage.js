@@ -40,7 +40,6 @@ class HomePage extends Component {
     async componentDidMount(){
         const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=150')
         const json = await response.json()
-        console.log(json)
         this.setState({
             AllPokemon: json.results
         })
@@ -317,7 +316,6 @@ class HomePage extends Component {
         }
         const uniqWeakArr = Array.from(new Set(weakArray))
         const filteredWeak = uniqWeakArr.filter((ele) => !this.state.moveTypes.includes(ele))
-        // console.log(filteredWeak)
         const weakdis = filteredWeak.map(type => <li>{type}</li>)
         return weakdis
     }
@@ -329,8 +327,6 @@ class HomePage extends Component {
     }
 
     render () {
-        console.log(this.state)
-        console.log(this.props)
         return (
         <div style={{backgroundImage: `url(https://ih1.redbubble.net/image.236310472.7095/flat,1000x1000,075,f.u2.jpg)`}}>
             <div className="box" style={{borderStyle: 'ridge', margin: 20, boxShadow: '10px 10px 18px -5px rgba(0,0,0,0.75)'}}>
