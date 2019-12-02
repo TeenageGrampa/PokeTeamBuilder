@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PokeCard from './PokeCard'
+import NumericInput from 'react-numeric-input';
 import Modal from './Modal'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -369,12 +369,12 @@ class HomePage extends Component {
                 <div className="column is-4">
                     <p>stats:</p>
                     <ul>
-                        <li>{this.props.slot1.stats[0].stat.name} - {this.props.slot1.stats[0].base_stat}</li>
-                        <li>{this.props.slot1.stats[1].stat.name} - {this.props.slot1.stats[1].base_stat}</li>
-                        <li>{this.props.slot1.stats[2].stat.name} - {this.props.slot1.stats[2].base_stat}</li>
-                        <li>{this.props.slot1.stats[3].stat.name} - {this.props.slot1.stats[3].base_stat}</li>
-                        <li>{this.props.slot1.stats[4].stat.name} - {this.props.slot1.stats[4].base_stat}</li>
-                        <li>{this.props.slot1.stats[5].stat.name} - {this.props.slot1.stats[5].base_stat}</li>
+                        <li>{this.props.slot1.stats[0].stat.name} - {this.props.slot1.stats[0].base_stat} - EV input <NumericInput min={0} max={252} style={{width: 10}} /></li>
+                        <li>{this.props.slot1.stats[1].stat.name} - {this.props.slot1.stats[1].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                        <li>{this.props.slot1.stats[2].stat.name} - {this.props.slot1.stats[2].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                        <li>{this.props.slot1.stats[3].stat.name} - {this.props.slot1.stats[3].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                        <li>{this.props.slot1.stats[4].stat.name} - {this.props.slot1.stats[4].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                        <li>{this.props.slot1.stats[5].stat.name} - {this.props.slot1.stats[5].base_stat} - EV input <NumericInput min={0} max={252} /></li>
                     </ul>
                 </div>
                 <div className="column is-4">
@@ -424,12 +424,12 @@ class HomePage extends Component {
                 <div className="column is-4">
                 <p>stats:</p>
                 <ul>
-                    <li>{this.props.slot2.stats[0].stat.name} - {this.props.slot2.stats[0].base_stat}</li>
-                    <li>{this.props.slot2.stats[1].stat.name} - {this.props.slot2.stats[1].base_stat}</li>
-                    <li>{this.props.slot2.stats[2].stat.name} - {this.props.slot2.stats[2].base_stat}</li>
-                    <li>{this.props.slot2.stats[3].stat.name} - {this.props.slot2.stats[3].base_stat}</li>
-                    <li>{this.props.slot2.stats[4].stat.name} - {this.props.slot2.stats[4].base_stat}</li>
-                    <li>{this.props.slot2.stats[5].stat.name} - {this.props.slot2.stats[5].base_stat}</li>
+                    <li>{this.props.slot2.stats[0].stat.name} - {this.props.slot2.stats[0].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot2.stats[1].stat.name} - {this.props.slot2.stats[1].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot2.stats[2].stat.name} - {this.props.slot2.stats[2].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot2.stats[3].stat.name} - {this.props.slot2.stats[3].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot2.stats[4].stat.name} - {this.props.slot2.stats[4].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot2.stats[5].stat.name} - {this.props.slot2.stats[5].base_stat} - EV input <NumericInput min={0} max={252} /></li>
                 </ul>
                 </div>
                 <div className="column is-4">
@@ -479,12 +479,12 @@ class HomePage extends Component {
                 <div className="column is-4">
                 <p>stats:</p>
                 <ul>
-                    <li>{this.props.slot3.stats[0].stat.name} - {this.props.slot3.stats[0].base_stat}</li>
-                    <li>{this.props.slot3.stats[1].stat.name} - {this.props.slot3.stats[1].base_stat}</li>
-                    <li>{this.props.slot3.stats[2].stat.name} - {this.props.slot3.stats[2].base_stat}</li>
-                    <li>{this.props.slot3.stats[3].stat.name} - {this.props.slot3.stats[3].base_stat}</li>
-                    <li>{this.props.slot3.stats[4].stat.name} - {this.props.slot3.stats[4].base_stat}</li>
-                    <li>{this.props.slot3.stats[5].stat.name} - {this.props.slot3.stats[5].base_stat}</li>
+                    <li>{this.props.slot3.stats[0].stat.name} - {this.props.slot3.stats[0].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot3.stats[1].stat.name} - {this.props.slot3.stats[1].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot3.stats[2].stat.name} - {this.props.slot3.stats[2].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot3.stats[3].stat.name} - {this.props.slot3.stats[3].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot3.stats[4].stat.name} - {this.props.slot3.stats[4].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot3.stats[5].stat.name} - {this.props.slot3.stats[5].base_stat} - EV input <NumericInput min={0} max={252} /></li>
                 </ul>
                 </div>
                 <div className="column is-4">
@@ -534,12 +534,12 @@ class HomePage extends Component {
                 <div className="column is-4">
                 <p>stats:</p>
                 <ul>
-                    <li>{this.props.slot4.stats[0].stat.name} - {this.props.slot4.stats[0].base_stat}</li>
-                    <li>{this.props.slot4.stats[1].stat.name} - {this.props.slot4.stats[1].base_stat}</li>
-                    <li>{this.props.slot4.stats[2].stat.name} - {this.props.slot4.stats[2].base_stat}</li>
-                    <li>{this.props.slot4.stats[3].stat.name} - {this.props.slot4.stats[3].base_stat}</li>
-                    <li>{this.props.slot4.stats[4].stat.name} - {this.props.slot4.stats[4].base_stat}</li>
-                    <li>{this.props.slot4.stats[5].stat.name} - {this.props.slot4.stats[5].base_stat}</li>
+                    <li>{this.props.slot4.stats[0].stat.name} - {this.props.slot4.stats[0].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot4.stats[1].stat.name} - {this.props.slot4.stats[1].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot4.stats[2].stat.name} - {this.props.slot4.stats[2].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot4.stats[3].stat.name} - {this.props.slot4.stats[3].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot4.stats[4].stat.name} - {this.props.slot4.stats[4].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot4.stats[5].stat.name} - {this.props.slot4.stats[5].base_stat} - EV input <NumericInput min={0} max={252} /></li>
                 </ul>
                 </div>
                 <div className="column is-4">
@@ -589,12 +589,12 @@ class HomePage extends Component {
                 <div className="column is-4">
                 <p>stats:</p>
                 <ul>
-                    <li>{this.props.slot5.stats[0].stat.name} - {this.props.slot5.stats[0].base_stat}</li>
-                    <li>{this.props.slot5.stats[1].stat.name} - {this.props.slot5.stats[1].base_stat}</li>
-                    <li>{this.props.slot5.stats[2].stat.name} - {this.props.slot5.stats[2].base_stat}</li>
-                    <li>{this.props.slot5.stats[3].stat.name} - {this.props.slot5.stats[3].base_stat}</li>
-                    <li>{this.props.slot5.stats[4].stat.name} - {this.props.slot5.stats[4].base_stat}</li>
-                    <li>{this.props.slot5.stats[5].stat.name} - {this.props.slot5.stats[5].base_stat}</li>
+                    <li>{this.props.slot5.stats[0].stat.name} - {this.props.slot5.stats[0].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot5.stats[1].stat.name} - {this.props.slot5.stats[1].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot5.stats[2].stat.name} - {this.props.slot5.stats[2].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot5.stats[3].stat.name} - {this.props.slot5.stats[3].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot5.stats[4].stat.name} - {this.props.slot5.stats[4].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot5.stats[5].stat.name} - {this.props.slot5.stats[5].base_stat} - EV input <NumericInput min={0} max={252} /></li>
                 </ul>
                 </div>
                 <div className="column is-4">
@@ -644,12 +644,12 @@ class HomePage extends Component {
                 <div className="column is-4">
                 <p>stats:</p>
                 <ul>
-                    <li>{this.props.slot6.stats[0].stat.name} - {this.props.slot6.stats[0].base_stat}</li>
-                    <li>{this.props.slot6.stats[1].stat.name} - {this.props.slot6.stats[1].base_stat}</li>
-                    <li>{this.props.slot6.stats[2].stat.name} - {this.props.slot6.stats[2].base_stat}</li>
-                    <li>{this.props.slot6.stats[3].stat.name} - {this.props.slot6.stats[3].base_stat}</li>
-                    <li>{this.props.slot6.stats[4].stat.name} - {this.props.slot6.stats[4].base_stat}</li>
-                    <li>{this.props.slot6.stats[5].stat.name} - {this.props.slot6.stats[5].base_stat}</li>
+                    <li>{this.props.slot6.stats[0].stat.name} - {this.props.slot6.stats[0].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot6.stats[1].stat.name} - {this.props.slot6.stats[1].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot6.stats[2].stat.name} - {this.props.slot6.stats[2].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot6.stats[3].stat.name} - {this.props.slot6.stats[3].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot6.stats[4].stat.name} - {this.props.slot6.stats[4].base_stat} - EV input <NumericInput min={0} max={252} /></li>
+                    <li>{this.props.slot6.stats[5].stat.name} - {this.props.slot6.stats[5].base_stat} - EV input <NumericInput min={0} max={252} /></li>
                 </ul>
                 </div>
                 <div className="column is-4">
