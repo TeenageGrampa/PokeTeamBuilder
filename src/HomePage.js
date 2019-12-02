@@ -35,6 +35,42 @@ class HomePage extends Component {
         modal6_2: false,
         modal6_3: false,
         modal6_4: false,
+        slot1stat1: 0,
+        slot1stat2: 0,
+        slot1stat3: 0,
+        slot1stat4: 0,
+        slot1stat5: 0,
+        slot1stat6: 0,
+        slot2stat1: 0,
+        slot2stat2: 0,
+        slot2stat3: 0,
+        slot2stat4: 0,
+        slot2stat5: 0,
+        slot2stat6: 0,
+        slot3stat1: 0,
+        slot3stat2: 0,
+        slot3stat3: 0,
+        slot3stat4: 0,
+        slot3stat5: 0,
+        slot3stat6: 0,
+        slot4stat1: 0,
+        slot4stat2: 0,
+        slot4stat3: 0,
+        slot4stat4: 0,
+        slot4stat5: 0,
+        slot4stat6: 0,
+        slot5stat1: 0,
+        slot5stat2: 0,
+        slot5stat3: 0,
+        slot5stat4: 0,
+        slot5stat5: 0,
+        slot5stat6: 0,
+        slot6stat1: 0,
+        slot6stat2: 0,
+        slot6stat3: 0,
+        slot6stat4: 0,
+        slot6stat5: 0,
+        slot6stat6: 0,
     }
 
     async componentDidMount(){
@@ -326,7 +362,15 @@ class HomePage extends Component {
         })
     }
 
+    EvChange1_1 = (e) => {
+      this.setState({
+        slot1stat1: e
+      })
+      
+    }
+
     render () {
+      console.log(this.state)
         return (
         <div style={{backgroundImage: `url(https://ih1.redbubble.net/image.236310472.7095/flat,1000x1000,075,f.u2.jpg)`}}>
             <div className="box" style={{borderStyle: 'ridge', margin: 20, boxShadow: '10px 10px 18px -5px rgba(0,0,0,0.75)'}}>
@@ -369,12 +413,12 @@ class HomePage extends Component {
                 <div className="column is-4">
                     <p>stats:</p>
                     <ul>
-                        <li>{this.props.slot1.stats[0].stat.name} - {this.props.slot1.stats[0].base_stat} - EV input <NumericInput min={0} max={252} size='10' /></li>
-                        <li>{this.props.slot1.stats[1].stat.name} - {this.props.slot1.stats[1].base_stat} - EV input <NumericInput min={0} max={252} size='10' /></li>
-                        <li>{this.props.slot1.stats[2].stat.name} - {this.props.slot1.stats[2].base_stat} - EV input <NumericInput min={0} max={252} size='10' /></li>
-                        <li>{this.props.slot1.stats[3].stat.name} - {this.props.slot1.stats[3].base_stat} - EV input <NumericInput min={0} max={252} size='10' /></li>
-                        <li>{this.props.slot1.stats[4].stat.name} - {this.props.slot1.stats[4].base_stat} - EV input <NumericInput min={0} max={252} size='10' /></li>
-                        <li>{this.props.slot1.stats[5].stat.name} - {this.props.slot1.stats[5].base_stat} - EV input <NumericInput min={0} max={252} size='10' /></li>
+                        <li>{this.props.slot1.stats[0].stat.name} - {Math.floor(this.props.slot1.stats[0].base_stat + (this.state.slot1stat1 / 4))} - EV input <NumericInput min={0} max={252} size='10' value={this.state.slot1stat1} onChange={this.EvChange1_1}/></li>
+                        <li>{this.props.slot1.stats[1].stat.name} - {this.props.slot1.stats[1].base_stat} - EV input <NumericInput min={0} max={252} size='10' value={this.state.slot1stat2} onChange={this.EvChange} /></li>
+                        <li>{this.props.slot1.stats[2].stat.name} - {this.props.slot1.stats[2].base_stat} - EV input <NumericInput min={0} max={252} size='10' value={this.state.slot1stat3} onChange={this.EvChange} /></li>
+                        <li>{this.props.slot1.stats[3].stat.name} - {this.props.slot1.stats[3].base_stat} - EV input <NumericInput min={0} max={252} size='10' value={this.state.slot1stat4} onChange={this.EvChange}/></li>
+                        <li>{this.props.slot1.stats[4].stat.name} - {this.props.slot1.stats[4].base_stat} - EV input <NumericInput min={0} max={252} size='10' value={this.state.slot1stat5} onChange={this.EvChange}/></li>
+                        <li>{this.props.slot1.stats[5].stat.name} - {this.props.slot1.stats[5].base_stat} - EV input <NumericInput min={0} max={252} size='10' value={this.state.slot1stat6} onChange={this.EvChange}/></li>
                     </ul>
                 </div>
                 <div className="column is-4">
