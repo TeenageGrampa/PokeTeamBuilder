@@ -71,6 +71,7 @@ class HomePage extends Component {
         slot6stat4: 0,
         slot6stat5: 0,
         slot6stat6: 0,
+        slot1EVs: 510
     }
 
     async componentDidMount(){
@@ -363,40 +364,65 @@ class HomePage extends Component {
     }
 
     EvChange1_1 = (e) => {
-      this.setState({
-        slot1stat1: e
-      })
+      if(this.state.slot1EVs > 0){
+        this.setState({
+          slot1stat1: e,
+          slot1Evs: this.state.slot1EVs - e
+        })
+      } else{
+        return
+      }
       
     }
     EvChange1_2 = (e) => {
-      this.setState({
-        slot1stat2: e
-      })
-      
+      if(this.state.slot1EVs > 0){
+        this.setState({
+          slot1stat2: e,
+          slot1Evs: this.state.slot1EVs - e
+        })
+      } else {
+        return
+      }
     }
     EvChange1_13 = (e) => {
-      this.setState({
-        slot1stat3: e
-      })
-      
+      if(this.state.slot1EVs > 0){
+        this.setState({
+          slot1stat3: e,
+          slot1Evs: this.state.slot1EVs - e
+        })
+      } else {
+        return
+      }
     }
     EvChange1_4 = (e) => {
-      this.setState({
-        slot1stat4: e
-      })
-      
+      if(this.state.slot1EVs > 0){
+        this.setState({
+          slot1stat4: e,
+          slot1Evs: this.state.slot1EVs - e
+        })
+      } else {
+        return
+      }
     }
     EvChange1_5 = (e) => {
-      this.setState({
-        slot1stat5: e
-      })
-      
+      if(this.state.slot1EVs > 0){
+        this.setState({
+          slot1stat5: e,
+          slot1Evs: this.state.slot1EVs - e
+        })
+      } else {
+        return
+      }
     }
     EvChange1_6 = (e) => {
-      this.setState({
-        slot1stat6: e
-      })
-      
+      if(this.state.slot1EVs > 0){
+        this.setState({
+          slot1stat6: e,
+          slot1Evs: this.state.slot1EVs - e
+        })
+      } else {
+        return
+      }
     }
 
     EvChange2_1 = (e) => {
