@@ -779,11 +779,11 @@ class HomePage extends Component {
                     <p>stats:</p>
                     <ul>
                         <li>{this.props.slot1.stats[0].stat.name} - {Math.floor(this.props.slot1.stats[0].base_stat + (this.state.slot1stat1 / 4))} - EV input {this.state.slot1EVs > 0 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat1} onChange={this.EvChange1_1}/> : null }</li>
-                        <li>{this.props.slot1.stats[1].stat.name} - {Math.floor(this.props.slot1.stats[1].base_stat + (this.state.slot1stat2 / 4))} - EV input <NumericInput min={0} max={252} size='10' value={this.state.slot1stat2} onChange={this.EvChange1_2} /></li>
-                        <li>{this.props.slot1.stats[2].stat.name} - {Math.floor(this.props.slot1.stats[2].base_stat + (this.state.slot1stat3 / 4))} - EV input <NumericInput min={0} max={252} size='10' value={this.state.slot1stat3} onChange={this.EvChange1_3} /></li>
-                        <li>{this.props.slot1.stats[3].stat.name} - {Math.floor(this.props.slot1.stats[3].base_stat + (this.state.slot1stat4 / 4))} - EV input <NumericInput min={0} max={252} size='10' value={this.state.slot1stat4} onChange={this.EvChange1_4}/></li>
-                        <li>{this.props.slot1.stats[4].stat.name} - {Math.floor(this.props.slot1.stats[4].base_stat + (this.state.slot1stat5 / 4))} - EV input <NumericInput min={0} max={252} size='10' value={this.state.slot1stat5} onChange={this.EvChange1_5}/></li>
-                        <li>{this.props.slot1.stats[5].stat.name} - {Math.floor(this.props.slot1.stats[5].base_stat + (this.state.slot1stat6 / 4))} - EV input <NumericInput min={0} max={252} size='10' value={this.state.slot1stat6} onChange={this.EvChange1_6}/></li>
+                        <li>{this.props.slot1.stats[1].stat.name} - {Math.floor(this.props.slot1.stats[1].base_stat + (this.state.slot1stat2 / 4))} - EV input {this.state.slot1EVs > 0 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat2} onChange={this.EvChange1_2} /> : null}</li>
+                        <li>{this.props.slot1.stats[2].stat.name} - {Math.floor(this.props.slot1.stats[2].base_stat + (this.state.slot1stat3 / 4))} - EV input {this.state.slot1EVs > 0 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat3} onChange={this.EvChange1_3} /> : null}</li>
+                        <li>{this.props.slot1.stats[3].stat.name} - {Math.floor(this.props.slot1.stats[3].base_stat + (this.state.slot1stat4 / 4))} - EV input {this.state.slot1EVs > 0 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat4} onChange={this.EvChange1_4}/> : null}</li>
+                        <li>{this.props.slot1.stats[4].stat.name} - {Math.floor(this.props.slot1.stats[4].base_stat + (this.state.slot1stat5 / 4))} - EV input {this.state.slot1EVs > 0 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat5} onChange={this.EvChange1_5}/> : null}</li>
+                        <li>{this.props.slot1.stats[5].stat.name} - {Math.floor(this.props.slot1.stats[5].base_stat + (this.state.slot1stat6 / 4))} - EV input {this.state.slot1EVs > 0 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat6} onChange={this.EvChange1_6}/> : null}</li>
                     </ul>
                 </div>
                 <div className="column is-4">
