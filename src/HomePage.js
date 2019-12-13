@@ -71,12 +71,12 @@ class HomePage extends Component {
         slot6stat4: 0,
         slot6stat5: 0,
         slot6stat6: 0,
-        slot1EVs: 510,
-        slot2EVs: 510,
-        slot3EVs: 510,
-        slot4EVs: 510,
-        slot5EVs: 510,
-        slot6EVs: 510,
+        slot1EVs: 0,
+        slot2EVs: 0,
+        slot3EVs: 0,
+        slot4EVs: 0,
+        slot5EVs: 0,
+        slot6EVs: 0,
     }
 
     async componentDidMount(){
@@ -369,10 +369,10 @@ class HomePage extends Component {
     }
 
     EvChange1_1 = (e) => {
-      if(this.state.slot1EVs > 0){
+      if(this.state.slot1EVs < 510){
         this.setState({
           slot1stat1: e,
-          slot1EVs: this.state.slot1EVs - e
+          slot1EVs: this.state.slot1stat1 + this.state.slot1stat2 + this.state.slot1stat3 + this.state.slot1stat4 + this.state.slot1stat5 + this.state.slot1stat6
         })
       } else{
         return
@@ -380,50 +380,50 @@ class HomePage extends Component {
       
     }
     EvChange1_2 = (e) => {
-      if(this.state.slot1EVs > 0){
+      if(this.state.slot1EVs < 510){
         this.setState({
           slot1stat2: e,
-          slot1EVs: this.state.slot1EVs - e
+          slot1EVs: this.state.slot1stat1 + this.state.slot1stat2 + this.state.slot1stat3 + this.state.slot1stat4 + this.state.slot1stat5 + this.state.slot1stat6
         })
       } else {
         return
       }
     }
     EvChange1_3 = (e) => {
-      if(this.state.slot1EVs > 0){
+      if(this.state.slot1EVs < 510){
         this.setState({
           slot1stat3: e,
-          slot1EVs: this.state.slot1EVs - e
+          slot1EVs: this.state.slot1stat1 + this.state.slot1stat2 + this.state.slot1stat3 + this.state.slot1stat4 + this.state.slot1stat5 + this.state.slot1stat6
         })
       } else {
         return
       }
     }
     EvChange1_4 = (e) => {
-      if(this.state.slot1EVs > 0){
+      if(this.state.slot1EVs < 510){
         this.setState({
           slot1stat4: e,
-          slot1EVs: this.state.slot1EVs - e
+          slot1EVs: this.state.slot1stat1 + this.state.slot1stat2 + this.state.slot1stat3 + this.state.slot1stat4 + this.state.slot1stat5 + this.state.slot1stat6
         })
       } else {
         return
       }
     }
     EvChange1_5 = (e) => {
-      if(this.state.slot1EVs > 0){
+      if(this.state.slot1EVs < 510){
         this.setState({
           slot1stat5: e,
-          slot1EVs: this.state.slot1EVs - e
+          slot1EVs: this.state.slot1stat1 + this.state.slot1stat2 + this.state.slot1stat3 + this.state.slot1stat4 + this.state.slot1stat5 + this.state.slot1stat6
         })
       } else {
         return
       }
     }
     EvChange1_6 = (e) => {
-      if(this.state.slot1EVs > 0){
+      if(this.state.slot1EVs < 510){
         this.setState({
           slot1stat6: e,
-          slot1EVs: this.state.slot1EVs - e
+          slot1EVs: this.state.slot1stat1 + this.state.slot1stat2 + this.state.slot1stat3 + this.state.slot1stat4 + this.state.slot1stat5 + this.state.slot1stat6
         })
       } else {
         return
@@ -778,12 +778,12 @@ class HomePage extends Component {
                 <div className="column is-4">
                     <p>stats:</p>
                     <ul>
-                        <li>{this.props.slot1.stats[0].stat.name} - {Math.floor(this.props.slot1.stats[0].base_stat + (this.state.slot1stat1 / 4))} - EV input {this.state.slot1EVs > 0 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat1} onChange={this.EvChange1_1}/> : null }</li>
-                        <li>{this.props.slot1.stats[1].stat.name} - {Math.floor(this.props.slot1.stats[1].base_stat + (this.state.slot1stat2 / 4))} - EV input {this.state.slot1EVs > 0 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat2} onChange={this.EvChange1_2} /> : null}</li>
-                        <li>{this.props.slot1.stats[2].stat.name} - {Math.floor(this.props.slot1.stats[2].base_stat + (this.state.slot1stat3 / 4))} - EV input {this.state.slot1EVs > 0 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat3} onChange={this.EvChange1_3} /> : null}</li>
-                        <li>{this.props.slot1.stats[3].stat.name} - {Math.floor(this.props.slot1.stats[3].base_stat + (this.state.slot1stat4 / 4))} - EV input {this.state.slot1EVs > 0 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat4} onChange={this.EvChange1_4}/> : null}</li>
-                        <li>{this.props.slot1.stats[4].stat.name} - {Math.floor(this.props.slot1.stats[4].base_stat + (this.state.slot1stat5 / 4))} - EV input {this.state.slot1EVs > 0 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat5} onChange={this.EvChange1_5}/> : null}</li>
-                        <li>{this.props.slot1.stats[5].stat.name} - {Math.floor(this.props.slot1.stats[5].base_stat + (this.state.slot1stat6 / 4))} - EV input {this.state.slot1EVs > 0 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat6} onChange={this.EvChange1_6}/> : null}</li>
+                        <li>{this.props.slot1.stats[0].stat.name} - {Math.floor(this.props.slot1.stats[0].base_stat + (this.state.slot1stat1 / 4))} - EV input {this.state.slot1EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat1} onChange={this.EvChange1_1}/> : null }</li>
+                        <li>{this.props.slot1.stats[1].stat.name} - {Math.floor(this.props.slot1.stats[1].base_stat + (this.state.slot1stat2 / 4))} - EV input {this.state.slot1EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat2} onChange={this.EvChange1_2} /> : null}</li>
+                        <li>{this.props.slot1.stats[2].stat.name} - {Math.floor(this.props.slot1.stats[2].base_stat + (this.state.slot1stat3 / 4))} - EV input {this.state.slot1EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat3} onChange={this.EvChange1_3} /> : null}</li>
+                        <li>{this.props.slot1.stats[3].stat.name} - {Math.floor(this.props.slot1.stats[3].base_stat + (this.state.slot1stat4 / 4))} - EV input {this.state.slot1EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat4} onChange={this.EvChange1_4}/> : null}</li>
+                        <li>{this.props.slot1.stats[4].stat.name} - {Math.floor(this.props.slot1.stats[4].base_stat + (this.state.slot1stat5 / 4))} - EV input {this.state.slot1EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat5} onChange={this.EvChange1_5}/> : null}</li>
+                        <li>{this.props.slot1.stats[5].stat.name} - {Math.floor(this.props.slot1.stats[5].base_stat + (this.state.slot1stat6 / 4))} - EV input {this.state.slot1EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat6} onChange={this.EvChange1_6}/> : null}</li>
                     </ul>
                 </div>
                 <div className="column is-4">
