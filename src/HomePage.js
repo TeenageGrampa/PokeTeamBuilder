@@ -835,7 +835,8 @@ class HomePage extends Component {
                 <ul>
                     {this.getTypes(this.props.slot2)}
                 </ul>
-                <img src={this.props.slot2.sprites.front_default} />
+                {this.state.slot2shiny ? <img src={this.props.slot2.sprites.front_shiny} /> : <img src={this.props.slot2.sprites.front_default} /> }
+                {this.props.slot2.sprites.front_shiny ? <button onClick={() => this.showshiny('slot2shiny')}>Show Shiny</button> : null}
                 </div>
                 <div className="column is-4">
                 <p>stats:</p>
@@ -890,7 +891,8 @@ class HomePage extends Component {
                 <ul>
                     {this.getTypes(this.props.slot3)}
                 </ul>
-                <img src={this.props.slot3.sprites.front_default} />
+                {this.state.slot3shiny ? <img src={this.props.slot3.sprites.front_shiny} /> : <img src={this.props.slot3.sprites.front_default} /> }
+                {this.props.slot3.sprites.front_shiny ? <button onClick={() => this.showshiny('slot3shiny')}>Show Shiny</button> : null}
                 </div>
                 <div className="column is-4">
                 <p>stats:</p>
@@ -945,7 +947,8 @@ class HomePage extends Component {
                 <ul>
                     {this.getTypes(this.props.slot4)}
                 </ul>
-                <img src={this.props.slot4.sprites.front_default} />
+                {this.state.slot4shiny ? <img src={this.props.slot4.sprites.front_shiny} /> : <img src={this.props.slot4.sprites.front_default} /> }
+                {this.props.slot4.sprites.front_shiny ? <button onClick={() => this.showshiny('slot4shiny')}>Show Shiny</button> : null}
                 </div>
                 <div className="column is-4">
                 <p>stats:</p>
@@ -1000,7 +1003,8 @@ class HomePage extends Component {
                 <ul>
                     {this.getTypes(this.props.slot5)}
                 </ul>
-                <img src={this.props.slot5.sprites.front_default} />
+                {this.state.slot5shiny ? <img src={this.props.slot5.sprites.front_shiny} /> : <img src={this.props.slot5.sprites.front_default} /> }
+                {this.props.slot5.sprites.front_shiny ? <button onClick={() => this.showshiny('slot5shiny')}>Show Shiny</button> : null}
                 </div>
                 <div className="column is-4">
                 <p>stats:</p>
@@ -1055,7 +1059,8 @@ class HomePage extends Component {
                 <ul>
                     {this.getTypes(this.props.slot6)}
                 </ul>
-                <img src={this.props.slot6.sprites.front_default} />
+                {this.state.slot6shiny ? <img src={this.props.slot6.sprites.front_shiny} /> : <img src={this.props.slot6.sprites.front_default} /> }
+                {this.props.slot6.sprites.front_shiny ? <button onClick={() => this.showshiny('slot6shiny')}>Show Shiny</button> : null}
                 </div>
                 <div className="column is-4">
                 <p>stats:</p>
