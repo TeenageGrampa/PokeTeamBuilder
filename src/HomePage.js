@@ -78,6 +78,12 @@ class HomePage extends Component {
         slot5EVs: 0,
         slot6EVs: 0,
         slot1shiny: false,
+        slot2shiny: false,
+        slot3shiny: false,
+        slot4shiny: false,
+        slot5shiny: false,
+        slot6shiny: false,
+        allItems: []
     }
 
     async componentDidMount(){
@@ -85,6 +91,11 @@ class HomePage extends Component {
         const json = await response.json()
         this.setState({
             AllPokemon: json.results
+        })
+        const itemres = await fetch('https://pokeapi.co/api/v2/item/?limit=954')
+        const itemjson = await itemres.json()
+        this.setState({
+          allItems: itemjson.results
         })
     }
 
@@ -96,6 +107,10 @@ class HomePage extends Component {
     getMoves = (pokemon) => {
         const pokemoves = pokemon.moves.map(move => <option value={move.move.url}>{move.move.name}</option>)
         return pokemoves
+    }
+    getItems = () =>{
+      const items = this.state.allItems.map(item => <option >{item.name}</option>)
+      return items
     }
 
     handleMoveSelect1_1 = async (e) =>{
@@ -792,6 +807,10 @@ class HomePage extends Component {
                         <li>{this.props.slot1.stats[4].stat.name} - {Math.floor(this.props.slot1.stats[4].base_stat + (this.state.slot1stat5 / 4))} - EV input {this.state.slot1EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat5} onChange={this.EvChange1_5}/> : null}</li>
                         <li>{this.props.slot1.stats[5].stat.name} - {Math.floor(this.props.slot1.stats[5].base_stat + (this.state.slot1stat6 / 4))} - EV input {this.state.slot1EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat6} onChange={this.EvChange1_6}/> : null}</li>
                     </ul>
+                    <p>held item:</p>
+                    <select>
+                      {this.getItems()}
+                    </select>
                 </div>
                 <div className="column is-4">
                     <h1>Moves:</h1>
@@ -848,6 +867,10 @@ class HomePage extends Component {
                     <li>{this.props.slot2.stats[4].stat.name} - {Math.floor(this.props.slot2.stats[4].base_stat + (this.state.slot2stat5 / 4))} - EV input {this.state.slot2EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot2stat5} onChange={this.EvChange2_5}/> : null}</li>
                     <li>{this.props.slot2.stats[5].stat.name} - {Math.floor(this.props.slot2.stats[5].base_stat + (this.state.slot2stat6 / 4))} - EV input {this.state.slot2EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot2stat6} onChange={this.EvChange2_6}/> : null}</li>
                 </ul>
+                <p>held item:</p>
+                    <select>
+                      {this.getItems()}
+                    </select>
                 </div>
                 <div className="column is-4">
                     <h1>Moves:</h1>
@@ -904,6 +927,10 @@ class HomePage extends Component {
                     <li>{this.props.slot3.stats[4].stat.name} - {Math.floor(this.props.slot3.stats[4].base_stat + (this.state.slot3stat5 / 4))} - EV input {this.state.slot3EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot3stat5} onChange={this.EvChange3_5}/> : null}</li>
                     <li>{this.props.slot3.stats[5].stat.name} - {Math.floor(this.props.slot3.stats[5].base_stat + (this.state.slot3stat6 / 4))} - EV input {this.state.slot3EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot3stat6} onChange={this.EvChange3_6}/> : null}</li>
                 </ul>
+                <p>held item:</p>
+                    <select>
+                      {this.getItems()}
+                    </select>
                 </div>
                 <div className="column is-4">
                     <h1>Moves:</h1>
@@ -960,6 +987,10 @@ class HomePage extends Component {
                     <li>{this.props.slot4.stats[4].stat.name} - {Math.floor(this.props.slot4.stats[4].base_stat + (this.state.slot4stat5 / 4))} - EV input {this.state.slot4EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot4stat5} onChange={this.EvChange4_5}/> : null}</li>
                     <li>{this.props.slot4.stats[5].stat.name} - {Math.floor(this.props.slot4.stats[5].base_stat + (this.state.slot4stat6 / 4))} - EV input {this.state.slot4EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot4stat6} onChange={this.EvChange4_6}/> : null}</li>
                 </ul>
+                <p>held item:</p>
+                    <select>
+                      {this.getItems()}
+                    </select>
                 </div>
                 <div className="column is-4">
                     <h1>Moves:</h1>
@@ -1016,6 +1047,10 @@ class HomePage extends Component {
                     <li>{this.props.slot5.stats[4].stat.name} - {Math.floor(this.props.slot5.stats[4].base_stat + (this.state.slot5stat5 / 4))} - EV input {this.state.slot5EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot5stat5} onChange={this.EvChange5_5}/> : null}</li>
                     <li>{this.props.slot5.stats[5].stat.name} - {Math.floor(this.props.slot5.stats[5].base_stat + (this.state.slot5stat6 / 4))} - EV input {this.state.slot5EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot5stat6} onChange={this.EvChange5_6}/> : null}</li>
                 </ul>
+                <p>held item:</p>
+                    <select>
+                      {this.getItems()}
+                    </select>
                 </div>
                 <div className="column is-4">
                     <h1>Moves:</h1>
@@ -1072,6 +1107,10 @@ class HomePage extends Component {
                     <li>{this.props.slot6.stats[4].stat.name} - {Math.floor(this.props.slot6.stats[4].base_stat + (this.state.slot6stat5 / 4))} - EV input {this.state.slot6EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot6stat5} onChange={this.EvChange6_5}/> : null}</li>
                     <li>{this.props.slot6.stats[5].stat.name} - {Math.floor(this.props.slot6.stats[5].base_stat + (this.state.slot6stat6 / 4))} - EV input {this.state.slot6EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot6stat6} onChange={this.EvChange6_6}/> : null}</li>
                 </ul>
+                <p>held item:</p>
+                    <select>
+                      {this.getItems()}
+                    </select>
                 </div>
                 <div className="column is-4">
                     <h1>Moves:</h1>
