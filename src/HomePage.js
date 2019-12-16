@@ -77,6 +77,7 @@ class HomePage extends Component {
         slot4EVs: 0,
         slot5EVs: 0,
         slot6EVs: 0,
+        slot1shiny: false,
     }
 
     async componentDidMount(){
@@ -734,6 +735,11 @@ class HomePage extends Component {
         return
       }
     }
+    showshiny = (slotnum) => {
+      this.setState({
+        [slotnum]: !this.state[slotnum]
+      })
+    }
     render () {
       console.log(this.state)
         return (
@@ -773,7 +779,8 @@ class HomePage extends Component {
                     <ul>
                         {this.getTypes(this.props.slot1)}
                     </ul>
-                    <img src={this.props.slot1.sprites.front_default} />
+            {this.state.slot1shiny ? <img src={this.props.slot1.sprites.front_shiny} /> : <img src={this.props.slot1.sprites.front_default} /> }
+            {this.props.slot1.sprites.front_shiny ? <button onClick={() => this.showshiny('slot1shiny')}>Show Shiny</button> : null}
                 </div>
                 <div className="column is-4">
                     <p>stats:</p>
