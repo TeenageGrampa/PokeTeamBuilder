@@ -761,6 +761,7 @@ class HomePage extends Component {
         <div style={{backgroundImage: `url(https://ih1.redbubble.net/image.236310472.7095/flat,1000x1000,075,f.u2.jpg)`}}>
             <div className="box" style={{borderStyle: 'ridge', margin: 20, boxShadow: '10px 10px 18px -5px rgba(0,0,0,0.75)'}}>
             <h1 className="title">Welcome</h1>
+            <Link to="/NewTeam" className="btn">Create Team</Link>
             {this.props.slot1 && this.props.slot2 && this.props.slot3 && this.props.slot4 && this.props.slot5 && this.props.slot6 ?
             <button onClick={this.handleAnalyze}>Analyze Team</button>
             :null}
@@ -1146,7 +1147,6 @@ class HomePage extends Component {
             </div> 
             : null
             }
-            <Link to="/NewTeam" className="btn">Create Team</Link>
         </div>
         );
     }
