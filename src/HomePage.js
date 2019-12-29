@@ -759,6 +759,21 @@ class HomePage extends Component {
     slot1ItemSelect = (e) => {
       this.props.AddSlot1Item(e.target.value)
     }
+    slot2ItemSelect = (e) => {
+      this.props.AddSlot2Item(e.target.value)
+    }
+    slot3ItemSelect = (e) => {
+      this.props.AddSlot3Item(e.target.value)
+    }
+    slot4ItemSelect = (e) => {
+      this.props.AddSlot4Item(e.target.value)
+    }
+    slot5ItemSelect = (e) => {
+      this.props.AddSlot5Item(e.target.value)
+    }
+    slot6ItemSelect = (e) => {
+      this.props.AddSlot6Item(e.target.value)
+    }
     render () {
       console.log(this.state)
         return (
@@ -816,6 +831,7 @@ class HomePage extends Component {
                     <select onChange={this.slot1ItemSelect}>
                       {this.getItems()}
                     </select>
+                    <p>Current Held Item: {this.props.slot1Item}</p>
                 </div>
                 <div className="column is-4">
                     <h1>Moves:</h1>
@@ -873,9 +889,10 @@ class HomePage extends Component {
                     <li>{this.props.slot2.stats[5].stat.name} - {Math.floor(this.props.slot2.stats[5].base_stat + (this.state.slot2stat6 / 4))} - EV input {this.state.slot2EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot2stat6} onChange={this.EvChange2_6}/> : null}</li>
                 </ul>
                 <p>held item:</p>
-                    <select>
+                    <select onChange={this.slot2ItemSelect}>
                       {this.getItems()}
                     </select>
+                    <p>Current Held Item: {this.props.slot2Item}</p>
                 </div>
                 <div className="column is-4">
                     <h1>Moves:</h1>
@@ -933,9 +950,10 @@ class HomePage extends Component {
                     <li>{this.props.slot3.stats[5].stat.name} - {Math.floor(this.props.slot3.stats[5].base_stat + (this.state.slot3stat6 / 4))} - EV input {this.state.slot3EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot3stat6} onChange={this.EvChange3_6}/> : null}</li>
                 </ul>
                 <p>held item:</p>
-                    <select >
+                    <select onChange={this.slot3ItemSelect}>
                       {this.getItems()}
                     </select>
+                    <p>Current Held Item: {this.props.slot3Item}</p>
                 </div>
                 <div className="column is-4">
                     <h1>Moves:</h1>
@@ -993,9 +1011,10 @@ class HomePage extends Component {
                     <li>{this.props.slot4.stats[5].stat.name} - {Math.floor(this.props.slot4.stats[5].base_stat + (this.state.slot4stat6 / 4))} - EV input {this.state.slot4EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot4stat6} onChange={this.EvChange4_6}/> : null}</li>
                 </ul>
                 <p>held item:</p>
-                    <select>
+                    <select onChange={this.slot4ItemSelect}>
                       {this.getItems()}
                     </select>
+                    <p>Current Held Item: {this.props.slot4Item}</p>
                 </div>
                 <div className="column is-4">
                     <h1>Moves:</h1>
@@ -1053,9 +1072,10 @@ class HomePage extends Component {
                     <li>{this.props.slot5.stats[5].stat.name} - {Math.floor(this.props.slot5.stats[5].base_stat + (this.state.slot5stat6 / 4))} - EV input {this.state.slot5EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot5stat6} onChange={this.EvChange5_6}/> : null}</li>
                 </ul>
                 <p>held item:</p>
-                    <select>
+                    <select onChange={this.slot5ItemSelect}>
                       {this.getItems()}
                     </select>
+                    <p>Current Held Item: {this.props.slot5Item}</p>
                 </div>
                 <div className="column is-4">
                     <h1>Moves:</h1>
@@ -1113,9 +1133,10 @@ class HomePage extends Component {
                     <li>{this.props.slot6.stats[5].stat.name} - {Math.floor(this.props.slot6.stats[5].base_stat + (this.state.slot6stat6 / 4))} - EV input {this.state.slot6EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot6stat6} onChange={this.EvChange6_6}/> : null}</li>
                 </ul>
                 <p>held item:</p>
-                    <select>
+                    <select onChange={this.slot6ItemSelect}>
                       {this.getItems()}
                     </select>
+                    <p>Current Held Item: {this.props.slot6Item}</p>
                 </div>
                 <div className="column is-4">
                     <h1>Moves:</h1>
@@ -1188,6 +1209,12 @@ const mapStateToProps = (store) => {
       slot6move2: store.slot6move2,
       slot6move3: store.slot6move3,
       slot6move4: store.slot6move4,
+      slot1Item: store.slot1Item,
+      slot2Item: store.slot2Item,
+      slot3Item: store.slot3Item,
+      slot4Item: store.slot4Item,
+      slot5Item: store.slot5Item,
+      slot6Item: store.slot6Item,
     }
 }
   
@@ -1270,6 +1297,21 @@ const mapDispatchToProps = (dispatch) => {
       },
       AddSlot1Item: (item) => {
         dispatch({ type: "Add_slot1_item", slot1Item: item })
+      },
+      AddSlot2Item: (item) => {
+        dispatch({ type: "Add_slot2_item", slot2Item: item })
+      },
+      AddSlot3Item: (item) => {
+        dispatch({ type: "Add_slot3_item", slot3Item: item })
+      },
+      AddSlot4Item: (item) => {
+        dispatch({ type: "Add_slot4_item", slot4Item: item })
+      },
+      AddSlot5Item: (item) => {
+        dispatch({ type: "Add_slot5_item", slot5Item: item })
+      },
+      AddSlot6Item: (item) => {
+        dispatch({ type: "Add_slot6_item", slot6Item: item })
       },
     }
 }
