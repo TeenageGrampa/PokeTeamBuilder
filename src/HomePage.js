@@ -109,7 +109,7 @@ class HomePage extends Component {
         return pokemoves
     }
     getItems = () =>{
-      const items = this.state.allItems.map(item => <option value={item}>{item.name}</option>)
+      const items = this.state.allItems.map(item => <option url={item.url}>{item.name}</option>)
       return items
     }
 
@@ -757,7 +757,7 @@ class HomePage extends Component {
     }
 
     slot1ItemSelect = (e) => {
-      console.log(e.target.value)
+      this.props.AddSlot1Item(e.target.value)
     }
     render () {
       console.log(this.state)
