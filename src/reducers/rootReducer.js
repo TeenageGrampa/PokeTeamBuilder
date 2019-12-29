@@ -66,6 +66,18 @@ function rootReducer( state = {}, action){
             return {...state, slot6move3: action.slot6move3}
         case "Add_slot6_move4":
             return {...state, slot6move4: action.slot6move4}
+        case "Add_slot1_item":
+            return {...state, slot1Item: action.slot1Item}
+        case "Add_slot2_item":
+            return {...state, slot2Item: action.slot2Item}
+        case "Add_slot3_item":
+            return {...state, slot3Item: action.slot3Item}
+        case "Add_slot4_item":
+            return {...state, slot4Item: action.slot4Item}
+        case "Add_slot5_item":
+            return {...state, slot5Item: action.slot5Item}
+        case "Add_slot6_item":
+            return {...state, slot6Item: action.slot6Item}
         default: 
         return state
     }

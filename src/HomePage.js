@@ -109,7 +109,7 @@ class HomePage extends Component {
         return pokemoves
     }
     getItems = () =>{
-      const items = this.state.allItems.map(item => <option >{item.name}</option>)
+      const items = this.state.allItems.map(item => <option value={item}>{item.name}</option>)
       return items
     }
 
@@ -755,6 +755,10 @@ class HomePage extends Component {
         [slotnum]: !this.state[slotnum]
       })
     }
+
+    slot1ItemSelect = (e) => {
+      console.log(e.target.value)
+    }
     render () {
       console.log(this.state)
         return (
@@ -809,7 +813,7 @@ class HomePage extends Component {
                         <li>{this.props.slot1.stats[5].stat.name} - {Math.floor(this.props.slot1.stats[5].base_stat + (this.state.slot1stat6 / 4))} - EV input {this.state.slot1EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot1stat6} onChange={this.EvChange1_6}/> : null}</li>
                     </ul>
                     <p>held item:</p>
-                    <select>
+                    <select onChange={this.slot1ItemSelect}>
                       {this.getItems()}
                     </select>
                 </div>
@@ -929,7 +933,7 @@ class HomePage extends Component {
                     <li>{this.props.slot3.stats[5].stat.name} - {Math.floor(this.props.slot3.stats[5].base_stat + (this.state.slot3stat6 / 4))} - EV input {this.state.slot3EVs < 510 ?  <NumericInput min={0} max={252} size='10' value={this.state.slot3stat6} onChange={this.EvChange3_6}/> : null}</li>
                 </ul>
                 <p>held item:</p>
-                    <select>
+                    <select >
                       {this.getItems()}
                     </select>
                 </div>
@@ -1263,6 +1267,9 @@ const mapDispatchToProps = (dispatch) => {
       },
       AddSlot6Move4: (move) => {
         dispatch({ type: "Add_slot6_move4", slot6move4: move })
+      },
+      AddSlot1Item: (item) => {
+        dispatch({ type: "Add_slot1_item", slot1Item: item })
       },
     }
 }
